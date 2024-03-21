@@ -11,7 +11,7 @@ function RandomPicker() {
     if (state.isPlaying) {
       const pickedItem = setInterval(() => {
         dispatch({ type: "PICK" });
-      });
+      }, 60);
       setTimeout(() => {
         clearInterval(pickedItem);
         dispatch({ type: "PLAY" });

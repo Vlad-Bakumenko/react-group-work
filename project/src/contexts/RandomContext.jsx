@@ -1,5 +1,3 @@
-/* eslint-disable no-case-declarations */
-/* eslint-disable no-fallthrough */
 import { createContext, useState } from "react";
 import { useReducer } from "react";
 

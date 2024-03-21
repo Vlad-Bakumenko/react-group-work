@@ -1,9 +1,6 @@
-body {
+#root {
   min-height: 100vh;
   max-width: 100vw;
-}
-
-#root {
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -98,8 +95,8 @@ button:focus-visible {
 .item {
   border: 1px solid aqua;
   border-radius: 5px;
-  padding: 0.2rem 0.75rem;
   margin: 0 0.5rem 0.5rem 0;
+  width: 100%;
 }
 
 .item > button {
@@ -144,8 +141,6 @@ img {
   width: 100%;
   height: 100%;
   border-radius: 6px;
-  /* margin-bottom: 0.25rem;
-  object-fit: cover; */
 }
 
 .modal {
@@ -172,9 +167,6 @@ img {
 }
 
 @media (max-width:480px) {
-  /* .container {
-    width: 100%;
-  } */
   .app {
     margin: 0 auto;
   }
