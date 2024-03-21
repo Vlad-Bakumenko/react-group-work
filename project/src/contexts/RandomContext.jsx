@@ -16,7 +16,7 @@ const initialState = {
     "https://media.giphy.com/media/aiE3JQU3vLqTK/giphy.gif?cid=790b76118pb352guosl0jokipcr20oacqek5flm834nfagqc&ep=v1_gifs_search&rid=giphy.gif&ct=g",
     "https://media.giphy.com/media/aKLfLPnrRNkze7OrUJ/giphy.gif?cid=790b7611kuwf9vxbllwgh8v1kjbrrrbsajvdzk0eot6ykacw&ep=v1_gifs_search&rid=giphy.gif&ct=g",
   ],
-  pickedGif: "",
+  pickedGif: "https://media.giphy.com/media/aiE3JQU3vLqTK/giphy.gif?cid=790b76118pb352guosl0jokipcr20oacqek5flm834nfagqc&ep=v1_gifs_search&rid=giphy.gif&ct=g",
 };
 
 function reducer(currentState, action) {
@@ -50,7 +50,7 @@ function getRandomItem(array) {
 function RandomContextProvider({ children }) {
   const [input, setInput] = useState("");
   function handleChange(e) {
-    setInput(e.target.value);
+    setInput(e.target.value.toUpperCase());
   }
   const [error, setError] = useState({ content: "", open: false });
 
@@ -67,6 +67,19 @@ function RandomContextProvider({ children }) {
     }
   }
 
+  function handleClick(e) {
+    e.preventDefault();
+    const duplicate = state.items.find(item => input === item)
+    if (duplicate) {
+        setError({open:true, content:"such item already exist"})
+    } else if (!input){
+        setError({open:true, content:"no input"})
+    } else {
+        dispatch({type:"ADD", payload:input});
+    }
+    setInput("")   
+  }
+
   return (
     <RandomContext.Provider
       value={{
@@ -77,7 +90,7 @@ function RandomContextProvider({ children }) {
         dispatch,
         handlePlay,
         error,
-        setError,
+        setError,handleClick
       }}
     >
       {children}

@@ -6,7 +6,7 @@ function Item({item}) {
     const {dispatch} = useContext(RandomContext);
   return (
     <div>
-        <p>{item} <button onClick={()=>dispatch({type:"DELETE", payload:item})}>X</button></p>
+        <p className="item">{item} <button onClick={()=>dispatch({type:"DELETE", payload:item})}>X</button></p>
     </div>
   )
 }

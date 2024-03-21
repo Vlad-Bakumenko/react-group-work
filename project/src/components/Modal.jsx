@@ -8,7 +8,7 @@ function Modal() {
   return (
     <Popup open={error.open} closeOnDocumentClick onClose={closeModal}>
         <div className="modal">
-          <p>{error.content}</p>
+          {error.content}
           <button className="close" onClick={closeModal}>
             X
           </button>
